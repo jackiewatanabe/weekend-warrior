@@ -19,6 +19,26 @@ class Alouette
   end
 
   def self.verse(verse_number)
+    self.lines_for_verse(verse_number)
+    # @lyrics = [ "la tête", "le bec", "les yeux", "le cou", "les ailes", "les pattes", "la queue", "le dos" ]
+    verse = ""
+
+    2.times do
+      verse += "Je te plumerai #{ @lyrics[verse_number] }.\n"
+    end
+
+    until verse_number == -1
+      2.times do
+        verse += "Et #{ @lyrics[verse_number] }!\n"
+      end
+      verse_number -= 1
+    end
+
+    2.times do
+      verse += "Alouette!\n"
+    end
+    verse += "A-a-a-ah"
+
 
   end
 
