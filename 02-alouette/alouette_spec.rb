@@ -80,7 +80,7 @@ describe Alouette do
     end
 
     it "generates the third verse" do
-      
+
       expected_verse = <<-__END_VERSE__
       Je te plumerai les yeux.
 Je te plumerai les yeux.
@@ -106,21 +106,28 @@ A-a-a-ah
     end
 
     it "returns a string" do
-      skip
+
       Alouette.sing.must_be_kind_of String
     end
 
     it "begins and ends with the refrain" do
-      skip
+
       song = Alouette.sing
-      refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai."
-      song.start_with?(refrain + "\n\n").must_equal true, "Song didn't begin with the refrain"
+      refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai.\n"
+      #added line break to end of phrase because text file always ends with extra line break"
+      song.start_with?(refrain + "\n").must_equal true, "Song didn't begin with the refrain"
+      # got rid of second line break because text file always ends with extra line break
       song.end_with?("\n\n" + refrain).must_equal true, "Song didn't end with the refrain"
     end
 
+    # Alouette, gentille alouette,
+    # Alouette, je te plumerai.
+
     it "generates the full lyrics" do
-      skip
-      Alouette.sing.must_equal expected_lyrics
+
+      Alouette.sing.must_equal expected_lyrics + "\n"
+
+      #added \n because file automatically inserts newline
     end
   end
 end

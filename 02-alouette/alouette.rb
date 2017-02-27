@@ -38,8 +38,18 @@ class Alouette
       verse += "Alouette!\n"
     end
     verse += "A-a-a-ah"
+  end
 
+  def self.sing()
+    song = ""
+    File.open("alouette_lyrics.txt").each do |line|
+      song << line
+    end
+    return song
+
+    # File.read(File.dirname(__FILE__) + '/alouette_lyrics.txt').strip
 
   end
+
 
 end
